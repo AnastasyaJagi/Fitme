@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FitmeApp.Views.Q4ActivityLevelPage"
+    Visual="Material"
+    xmlns:local="clr-namespace:FitmeApp.ViewModels">
+    
+     <!--Background-->
+     <StackLayout>
+      <Grid VerticalOptions="FillAndExpand">
+          <Image Source="Background2" Aspect="AspectFill"/>
+
+          <Grid>
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="200"/>
+                  <RowDefinition Height="*"/>
+                  
+               
+                   </Grid.RowDefinitions>
+
+              <!--Logo back-->
+              <StackLayout Grid.Row="0" BackgroundColor="Transparent">
+                  <Image Source="backicon"
+                         Margin="0,55,290,0"
+                         HeightRequest="35">
+
+                      <Image.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToQ3AgeHeightWeightPage"/>
+
+                                </Image.GestureRecognizers>
+
+                  </Image>
+             
+                  <Grid>
+                     
+         
+                      <!--Label Question 4-->
+                      <Label TextColor="White"
+                             Text="What your level activity?"
+                             FontSize="30"
+                             FontAttributes="Bold"
+                             Margin="0,60,0,0"
+                             HorizontalOptions="CenterAndExpand"/>
+                  </Grid>
+              </StackLayout>
+
+              <!--kotak putih active level-->
+              <StackLayout Grid.Row="1" BackgroundColor="Transparent">
+                   <Frame BackgroundColor="White"
+                          CornerRadius="40"
+                          HeightRequest="90"
+                          HasShadow="False"
+                          Margin="20,20">
+                    <!--Label Active level-->
+                        <StackLayout>
+                            <Label Text="Active"
+                                FontAttributes="Bold"
+                                FontSize="22"
+                                TextColor="Black"
+                                HorizontalOptions="CenterAndExpand"
+                                Margin="0"/>
+                            <Label Text="Exercises 5 - 6 times / week"
+                               FontSize="20"
+                               TextColor="#717171"
+                               HorizontalOptions="CenterAndExpand"
+                               Margin="0">
+                            </Label>
+                        </StackLayout>
+      
+                            </Frame>
+
+                  <!--kotak putih Moderate lavel-->
+                  <Frame BackgroundColor="White"
+                         CornerRadius="40"
+                         HeightRequest="90"
+                         HasShadow="False"
+                         Margin="20,20">
+
+                      <StackLayout>
+                      
+                          <!--label gain muscle-->
+                    <Label Text="Moderate"
+                           FontAttributes="bold"
+                           FontSize="22"
+                           TextColor="Black"
+                           HorizontalOptions="CenterAndExpand"
+                           Margin="0"/>
+
+                         <Label Text="Exercises 3 - 4 times / week"
+                               FontSize="20"
+                               TextColor="#717171"
+                               HorizontalOptions="CenterAndExpand"
+                               Margin="0">
+                             </Label>
+                          </StackLayout>
+                            </Frame>
+
+                  <!--kotak putih Low-->
+                  <Frame BackgroundColor="White"
+                         Grid.Row="3"
+                         CornerRadius="40"
+                         HeightRequest="90"
+                         HasShadow="False"
+                         Margin="20,20">
+
+                      <StackLayout>
+                          <!--label low activity-->
+                    <Label Text="Low"
+                           FontAttributes="Bold"
+                           FontSize="22"
+                           TextColor="Black"
+                           HorizontalOptions="CenterAndExpand"
+                           Margin="30,0,30,0"/>
+
+                   <Label Text="Exercises 0 - 2 times / week"
+                           FontSize="20"
+                           TextColor="#717171"
+                           Margin="30,0,30,0">
+
+                          </Label>
+                         
+                        </StackLayout>
+                      
+                            </Frame>
+                       
+                  <!--Button next-->
+                  
+                  </StackLayout>
+             
+              
+              </Grid>
+          </Grid>
+         </StackLayout>
+
+   
+    </ContentPage>
+             
+

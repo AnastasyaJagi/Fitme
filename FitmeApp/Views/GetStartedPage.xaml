@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FitmeApp.Views.GetStartedPage"
+    Visual="Material"
+    xmlns:local="clr-namespace:FitmeApp.ViewModels">
+
+    <!-- gambar background-->
+  <StackLayout>
+      <Grid VerticalOptions="FillAndExpand">
+          <Image Source="Background.png" Aspect="AspectFill"/>
+
+          <!-- Grid= membagi baris halaman-->
+          <Grid>
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="250"/>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="200"/>
+
+              </Grid.RowDefinitions>
+               <!-- Label "FITME"-->
+              <StackLayout BackgroundColor="Transparent" Grid.Row="0">
+                  <Label TextColor="White"
+                         FontSize="90"
+                         Text="FITME"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="0,180,0,0"
+                         FontAttributes="Bold"/>
+                  </StackLayout>
+
+               <!-- Label Keterangan Appps-->
+              <StackLayout BackgroundColor="Transparent" Grid.Row="1">
+                  <Label TextColor="White"
+                         FontSize="25"
+                         Text="Are you ready to do your bodyweight exercises ?"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="80,130,0,0"/>
+                  </StackLayout>
+              
+               <!-- Button Get Started-->
+              <StackLayout BackgroundColor="Transparent" Grid.Row="2">
+                <Button Text="Get Started"
+                        TextColor="Black"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        VerticalOptions="CenterAndExpand"
+                        CornerRadius="20"
+                        WidthRequest="220"
+                        HeightRequest="50"
+                        BackgroundColor="White"
+                        Margin="0,0,0,300"
+                        Clicked="NavigateToLogin"/>
+                    
+                  </StackLayout>
+
+
+          </Grid>
+      </Grid>
+  </StackLayout>
+        
+   
+</ContentPage>

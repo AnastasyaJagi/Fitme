@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     x:Class="FitmeApp.Views.Q1BodyGoalsPage"
+    Visual="Material"
+    xmlns:local="clr-namespace:FitmeApp.ViewModels">
+    
+
+  <!--Background-->
+     <StackLayout>
+      <Grid VerticalOptions="FillAndExpand">
+          <Image Source="Background2" Aspect="AspectFill"/>
+
+          <Grid>
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="250"/>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="200"/>
+               
+                   </Grid.RowDefinitions>
+
+              <!--Label Question 1-->
+              <StackLayout Grid.Row="0" BackgroundColor="Transparent">
+                  <Grid>
+                      <Label TextColor="White"
+                             Text="What is your body goals?"
+                             FontSize="30"
+                             FontAttributes="Bold"
+                             Margin="0,160,0,0"
+                             HorizontalOptions="CenterAndExpand"/>
+                  </Grid>
+              </StackLayout>
+
+
+              <!--kotak putih lose weight-->
+              <StackLayout Grid.Row="1" BackgroundColor="Transparent">
+                   <Frame BackgroundColor="White"
+                          CornerRadius="40"
+                          HeightRequest="150"
+                          HasShadow="False"
+                          Margin="30,100,30,30">
+
+                        <Frame.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToQ2GenderPage"/>
+
+                                </Frame.GestureRecognizers>
+
+
+                    <Grid>
+
+                <!--grid pembagian antara logo dan label di dalam kotak putih-->
+                    <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                 <!--logo dan label Lose Weight-->
+                       <Image Source="loseweighticon2"
+                              Grid.Column="0"
+                              HeightRequest="10"
+                              Margin="10,0,0,0"/>
+
+                         <Label Text="Lose weight"
+                                FontSize="22"
+                                TextColor="#717171"
+                                Grid.Column="1"
+                                Margin="30,30,10,0">
+
+                        
+                             </Label>
+                           </Grid>
+                       
+
+                            </Frame>
+
+                  <!--kotak putih Gain Muscle-->
+                  <Frame BackgroundColor="White"
+                         Grid.Row="2"
+                         CornerRadius="40"
+                         HeightRequest="150"
+                         HasShadow="False"
+                         Margin="30,10,30,0">
+                      <Frame.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToQ2GenderPage"/>
+
+                                </Frame.GestureRecognizers>
+
+
+
+                     <!--grid pembagian antara logo dan label di dalam kotak putih-->
+                      <Grid>
+           
+                    <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                          <!--Logo dan label gain muscle-->
+                       <Image Source="gainmuscleicon"
+                              Grid.Column="0"
+                              HeightRequest="10"
+                              Margin="10,0,0,0"/>
+
+                    <Label Text="Gain Muscle"
+                           Grid.Column="1"
+                           FontSize="22"
+                           TextColor="#717171"
+                           Margin="30,30,30,0">
+
+                        
+                             </Label>
+                           </Grid>
+                       
+
+                            </Frame>
+
+                  
+                  </StackLayout>
+
+             
+                         
+
+            
+              </Grid>
+          </Grid>
+         </StackLayout>
+    </ContentPage>
+
+           
+    
+                
+            

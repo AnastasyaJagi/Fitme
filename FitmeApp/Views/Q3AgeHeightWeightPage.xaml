@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FitmeApp.Views.Q3AgeHeightWeightPage"
+    Visual="Material"
+    xmlns:local="clr-namespace:FitmeApp.ViewModels">
+ 
+
+   <!--Background-->
+     <StackLayout>
+      <Grid VerticalOptions="FillAndExpand">
+          <Image Source="Background2" Aspect="AspectFill"/>
+
+          <Grid>
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="250"/>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="200"/>
+               
+                   </Grid.RowDefinitions>
+
+                <!--Logo back-->
+              <StackLayout Grid.Row="0" BackgroundColor="Transparent">
+                  <Image Source="backicon"
+                         Margin="0,55,290,0"
+                         HeightRequest="35">
+
+                      <Image.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToQ2GenderPage"/>
+
+                                </Image.GestureRecognizers>
+
+                  </Image>
+
+                  <Grid>
+                      <!--Label Question 1-->
+                      <Label TextColor="White"
+                             Text="Let's input your basic data?"
+                             FontSize="30"
+                             FontAttributes="Bold"
+                             Margin="0,70,0,0"
+                             HorizontalOptions="CenterAndExpand"/>
+                       </Grid>
+                 </StackLayout>
+              <!--Kotak putih Age, weight, height-->
+              <Frame BackgroundColor="White"
+                     Opacity="0.8"
+                     Grid.Row="1"
+                     CornerRadius="40"
+                     Margin="20,0,20,0">
+
+                      <!--Form Age, weight, height-->
+              <StackLayout Padding="10">
+                  <Entry Placeholder="Age"
+                         BackgroundColor="Transparent"
+                         Text="{Binding Username}"
+                         Margin="0,0,0,20"
+                         TextColor="#717171"
+                         FontAttributes="Bold"
+                         PlaceholderColor="#717171"/>
+
+                   <Entry Placeholder="Weight"
+                         BackgroundColor="Transparent"
+                         Text="{Binding Username}"
+                         Margin="0,0,0,20"
+                         TextColor="#717171"
+                         FontAttributes="Bold"
+                         PlaceholderColor="#717171"/>
+
+                   <Entry Placeholder="Height"
+                         BackgroundColor="Transparent"
+                         Text="{Binding Username}"
+                         Margin="0,0,0,20"
+                         TextColor="#717171"
+                         FontAttributes="Bold"
+                         PlaceholderColor="#717171"/>
+                   
+                 
+                      </StackLayout>
+                   </Frame>
+
+              <!--Button next-->
+                  <StackLayout Grid.Row="2" BackgroundColor="Transparent">
+                      <Button Text="NEXT"
+                              TextColor="Gray"
+                              FontSize="20"
+                     
+                         BackgroundColor="White"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand"
+                         CornerRadius="30"
+                         WidthRequest="280"
+                         HeightRequest="60"
+                         FontAttributes="Bold"
+                         Clicked="NavigateToQ4ActivityLevelPage"/>
+                  </StackLayout>
+                   
+             
+       
+       
+ 
+              </Grid>
+          </Grid>
+         </StackLayout>
+    </ContentPage>
+              
+              
+          
+         
+    
+    
+
+
+   
+
+
+               
+   
+

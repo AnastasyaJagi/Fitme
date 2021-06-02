@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FitmeApp.Views.Login"
+    Visual="Material"
+    xmlns:local="clr-namespace:FitmeApp.ViewModels">
+
+ <!--Background-->
+     <StackLayout>
+      <Grid VerticalOptions="FillAndExpand">
+          <Image Source="Background.png" Aspect="AspectFill"/>
+
+          <Grid>
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="200"/>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="180"/>
+   
+                   </Grid.RowDefinitions>
+
+              <!--Label login-->
+              <StackLayout>
+                  <Grid>
+                      <Label TextColor="White"
+                             Text="Hi Tasya,Welcome Back to FITME..!"
+                             FontSize="30"
+                             FontAttributes="Bold"
+                             Margin="30,100,0,0"
+                             HorizontalOptions="CenterAndExpand"/>
+                  </Grid>
+              </StackLayout>
+              <!--Kotak putih login-->
+              <Frame BackgroundColor="White"
+                     Opacity="0.8"
+                     Grid.Row="1"
+                     CornerRadius="40"
+                     Margin="20,0,20,0">
+
+            <!--Form username password-->
+              <StackLayout Padding="10">
+                  <Entry Placeholder="Username"
+                         BackgroundColor="Transparent"
+                         Text="{Binding Username}"
+                         Margin="0,50,0,20"
+                         TextColor="#717171"
+                         FontAttributes="Bold"
+                         PlaceholderColor="#717171"/>
+
+                  <Entry Placeholder="Password"
+                         BackgroundColor="Transparent"
+                         Text="{Binding Password}"
+                         IsPassword="True"
+                         Margin="0,10,0,20"
+                         TextColor="#717171"
+                         FontAttributes="Bold"
+                         PlaceholderColor="#717171"/>
+
+                  <Button Text="Sign In"
+                         BackgroundColor="#6974CF"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand"
+                         CornerRadius="25"
+                         WidthRequest="350"
+                         HeightRequest="55"
+                         FontAttributes="Bold"/>
+                  <Grid
+                      Margin="30,20,0,0">
+
+                      <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="230"/>
+                          <ColumnDefinition Width="*"/>
+                      </Grid.ColumnDefinitions>
+
+
+           <!--Label = Dont have an account-->
+                        
+                  <Label TextColor="#414141"
+                         Grid.Column="0"
+                         FontSize="18"
+                         Margin="0,0,20,0"
+                         Text="Don't an account?"
+                         HorizontalOptions="Start"
+
+                         />
+                      <Label TextColor="#414141"
+                         Grid.Column="0"
+                         FontSize="18"
+                         Text="Sign Up"
+                             Margin="0,0,0,0"
+                             FontAttributes="Bold"
+                         HorizontalOptions="End"
+                         >
+                          <Label.GestureRecognizers>
+                              <TapGestureRecognizer Tapped="NavigateToSignUp"/>
+                          </Label.GestureRecognizers>
+
+</Label>
+
+                        </Grid>
+                 
+                         
+
+                
+
+
+              </StackLayout>
+
+
+                  </Frame>
+              </Grid>
+        
+
+    </Grid>
+         </StackLayout>
+
+
+
+</ContentPage>

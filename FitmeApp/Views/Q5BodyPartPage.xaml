@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FitmeApp.Views.Q5BodyPartPage"
+    Visual="Material"
+    xmlns:local="clr-namespace:FitmeApp.ViewModels">
+    
+   <!--Background-->
+     <StackLayout>
+      <Grid VerticalOptions="FillAndExpand">
+          <Image Source="Background2" Aspect="AspectFill"/>
+
+          <Grid>
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="200"/>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="90"/>
+               
+                   </Grid.RowDefinitions>
+
+              <!--Logo back-->
+              <StackLayout BackgroundColor="Black" Grid.Row="0" >
+                  <Image Source="backicon"
+                         Margin="0,55,290,0"
+                         HeightRequest="35">
+
+                     
+
+                  </Image>
+             
+                  <Grid>
+                     
+         
+                      <!--Label Question 4-->
+                      <Label TextColor="White"
+                             Text="What your level activity?"
+                             FontSize="30"
+                             FontAttributes="Bold"
+                             Margin="0,70,0,0"
+                             HorizontalOptions="CenterAndExpand"/>
+                  </Grid>
+              </StackLayout>
+
+              
+         
+              
+                  <!--Button Get Recommendation-->
+                  <StackLayout Grid.Row="2" BackgroundColor="Black">
+                      <Button Text="NEXT"
+                              TextColor="Gray"
+                              FontSize="20"
+                                BackgroundColor="White"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand"
+                         CornerRadius="30"
+                         WidthRequest="280"
+                         HeightRequest="60"
+                         FontAttributes="Bold"
+                         Clicked="NavigateToGetRecommendationPages"/>
+                  </StackLayout>
+
+      
+             
+          </Grid>
+          </Grid>
+         </StackLayout>
+    </ContentPage>
+
+         
