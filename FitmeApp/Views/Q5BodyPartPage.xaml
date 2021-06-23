@@ -15,42 +15,119 @@
               <Grid.RowDefinitions>
                   <RowDefinition Height="200"/>
                   <RowDefinition Height="*"/>
-                  <RowDefinition Height="90"/>
+                  <RowDefinition Height="230"/>
                
                    </Grid.RowDefinitions>
 
               <!--Logo back-->
-              <StackLayout BackgroundColor="Black" Grid.Row="0" >
+              <StackLayout BackgroundColor="Transparent" Grid.Row="0" >
                   <Image Source="backicon"
                          Margin="0,55,290,0"
                          HeightRequest="35">
-
-                     
-
                   </Image>
              
-                  <Grid>
-                     
-         
-                      <!--Label Question 4-->
+               <Grid>
+               <!--Label Question 4-->
                       <Label TextColor="White"
-                             Text="What your level activity?"
+                             Text="What body part you focus?"
                              FontSize="30"
                              FontAttributes="Bold"
                              Margin="0,70,0,0"
                              HorizontalOptions="CenterAndExpand"/>
-                  </Grid>
+              </Grid>
+              </StackLayout>
+
+              <Frame BackgroundColor="White"
+                     Opacity="0.8"
+                     Grid.Row="1"
+                     CornerRadius="40"
+                     Margin="20,0,20,0">
+
+
+                  </Frame>
+
+              <!--CHECKBOX-->
+              <StackLayout BackgroundColor="Transparent" Grid.Row="1">
+                  <StackLayout Orientation="Horizontal" Padding="40,20,0,0">
+                      <CheckBox IsChecked="True"
+                                />
+
+                  <Label Text="Arms"
+                         FontSize="30"
+                         Margin="0,4,0,0"
+                         />
+                  </StackLayout>
+
+               
+                   <StackLayout Orientation="Horizontal" Padding="40,0,0,0">
+                      <CheckBox IsChecked="True"
+                                />
+
+                  <Label Text="ABS"
+                         FontSize="30"
+                         Margin="0,4,0,0"
+                         />
+                  </StackLayout>
+
+
+                   <StackLayout Orientation="Horizontal" Padding="40,0,0,0">
+                      <CheckBox IsChecked="True"
+                                />
+
+                  <Label Text="Back"
+                         FontSize="30"
+                         Margin="0,4,0,0"
+                         />
+                  </StackLayout>
+
+                   <StackLayout Orientation="Horizontal" Padding="40,0,0,0">
+                      <CheckBox IsChecked="True"
+                                />
+
+                  <Label Text="Chest"
+                         FontSize="30"
+                         Margin="0,4,0,0"
+                         />
+                  </StackLayout>
+                   <StackLayout Orientation="Horizontal" Padding="40,0,0,0">
+                      <CheckBox IsChecked="True"
+                                />
+
+                  <Label Text="Core"
+                         FontSize="30"
+                         Margin="0,4,0,0"
+                         />
+                  </StackLayout>
+                   <StackLayout Orientation="Horizontal" Padding="40,0,0,0">
+                      <CheckBox IsChecked="True"
+                                />
+
+                  <Label Text="Calves"
+                         FontSize="30"
+                         Margin="0,4,0,0"
+                         />
+                  </StackLayout>
+                   <StackLayout Orientation="Horizontal" Padding="40,0,0,0">
+                      <CheckBox IsChecked="True"
+                                />
+
+                  <Label Text="Glutes"
+                         FontSize="30"
+                         Margin="0,4,0,0"
+                         />
+                  </StackLayout>
               </StackLayout>
 
               
          
               
-                  <!--Button Get Recommendation-->
-                  <StackLayout Grid.Row="2" BackgroundColor="Black">
+             <!--Button Get Recommendation-->
+                  <StackLayout Grid.Row="2" BackgroundColor="Transparent">
                       <Button Text="NEXT"
                               TextColor="Gray"
                               FontSize="20"
                                 BackgroundColor="White"
+                              Margin="0,0,0,100"
                          HorizontalOptions="Center"
                          VerticalOptions="CenterAndExpand"
                          CornerRadius="30"

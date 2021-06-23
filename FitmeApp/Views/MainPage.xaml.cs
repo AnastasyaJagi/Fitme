@@ -10,6 +10,7 @@ namespace FitmeApp.Views
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

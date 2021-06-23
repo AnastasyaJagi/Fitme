@@ -9,10 +9,15 @@ namespace FitmeApp.Views
     {
         public GetRecommendationPages()
         {
-           
+
             InitializeComponent();
             BindingContext = new GetRecomendationViewModel();
             NavigationPage.SetHasNavigationBar(this, false);
         }
+        public void NavigateToWorkoutVideoPage(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new WorkoutVideoPage());
+        }
+
     }
 }

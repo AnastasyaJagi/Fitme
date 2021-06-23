@@ -15,6 +15,7 @@
               <Grid.RowDefinitions>
                   <RowDefinition Height="200"/>
                   <RowDefinition Height="*"/>
+                  <RowDefinition Height="150"/>
                   
                
                    </Grid.RowDefinitions>
@@ -52,6 +53,11 @@
                           HeightRequest="90"
                           HasShadow="False"
                           Margin="20,20">
+
+                       <Frame.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToQ5BodyPartPage"/>
+
+                                </Frame.GestureRecognizers>
                     <!--Label Active level-->
                         <StackLayout>
                             <Label Text="Active"
@@ -127,7 +133,7 @@
                   <!--Button next-->
                   
                   </StackLayout>
-             
+              
               
               </Grid>
           </Grid>

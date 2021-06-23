@@ -21,7 +21,7 @@ namespace FitmeApp.Views
         public void NavigateToGetRecommendationPages(object sender, System.EventArgs a)
 
         {
-            Navigation.PushAsync(new GetRecommendationPages());
+            Navigation.PushAsync(new MainPage());
 
         }
     }

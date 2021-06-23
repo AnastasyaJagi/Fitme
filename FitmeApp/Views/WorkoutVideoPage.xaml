@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FitmeApp.Views.WorkoutVideoPage"
+    Visual="Material"
+    xmlns:local="clr-namespace:FitmeApp.ViewModels">
+
+     <!--Background-->
+     <StackLayout>
+      <Grid VerticalOptions="FillAndExpand">
+          <Image Source="Background2" Aspect="AspectFill"/>
+
+          <Grid>
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="200"/>
+                  <RowDefinition Height="*"/>
+                  
+                   </Grid.RowDefinitions>
+              
+                     <!--kotak putih active level-->
+              <StackLayout Grid.Row="1" BackgroundColor="Transparent">
+                   <Frame BackgroundColor="White"
+                          CornerRadius="40"
+                          HeightRequest="500"
+                          HasShadow="False"
+                          Margin="20,20,20,30">
+
+                       <!--<Frame.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToQ5BodyPartPage"/>
+
+                                </Frame.GestureRecognizers>-->
+                       <StackLayout>
+                        <Label Text="ABS"
+                               FontSize="30"
+                               HorizontalOptions="CenterAndExpand"
+                               FontAttributes="Bold">
+
+                        </Label>
+                           
+                           <Frame HeightRequest="80" HasShadow="True"
+                                  CornerRadius="30">
+                               <Frame.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToHistoryPage"/>
+</Frame.GestureRecognizers>
+                            <StackLayout>
+                                <Label Text="Push UP"
+                                       FontAttributes="Bold"
+                                      FontSize="20"
+                                      Margin="0,0,0,0"/>
+                                <Label Text="2 X 4 Sets"/>
+                                <Label Text=" Breaktime 2 times"/>
+                            </StackLayout>
+                          
+
+                          
+                          
+                         
+
+                               </Frame>
+                        </StackLayout>
+                       </Frame>
+                  
+                  </StackLayout>
+        
+                         
+              </Grid>
+
+          </Grid>
+       
+     </StackLayout>
+</ContentPage>

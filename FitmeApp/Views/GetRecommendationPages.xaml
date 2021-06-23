@@ -13,65 +13,95 @@
 
           <Grid>
               <Grid.RowDefinitions>
-                  <RowDefinition Height="200"/>
+                  <RowDefinition Height="230"/>
                   <RowDefinition Height="*"/>
                   <RowDefinition Height="90"/>
                
                    </Grid.RowDefinitions>
 
-              <Grid>
+          
                       <!--Label Question 1-->
                       <Label TextColor="White"
-                             Text="Hi Tasya, Here are your bodyweight exercises type recommendation :"
-                             FontSize="20"
+                             Text="Hi Tasya, "
+                             FontSize="30"
                              FontAttributes="Bold"
-                             Margin="20,100,0,50"
-                             HorizontalOptions="CenterAndExpand"/>
-                       </Grid>
+                             Margin="20,100,0,50"/>
+                      
+                      <Label TextColor="white"
+                            Text="This is your body workout type"
+                            FontSize="25"
+                            Margin="20,145,0,0"
+                           />
+
+                  <Label TextColor="white"
+                            Text="recommendation : "
+                            FontSize="25"
+                            Margin="20,10,0,10"/>
+
+                     
+
               
-              <!--Logo back-->
+              <!--Kotak putih output-->
               
-               <StackLayout Grid.Row="1" BackgroundColor="Transparent">
+             
                    <Frame BackgroundColor="White"
+                          Grid.Row="1"
                           CornerRadius="40"
-                          HeightRequest="100"
+                          HeightRequest="500"
                           HasShadow="False"
                           Margin="30,10,30,0">
-                    <Grid>
+                    
                        
-           
-                    <!--Label Active level-->
-                         <Label Text="Level Beginer"
+                    <StackLayout>
+                         <!--Label Active level-->
+                        <Label Text="Level Beginer"
                                 FontAttributes="Bold"
-                                FontSize="22"
+                                FontSize="30"
                                 TextColor="#717171"
                                 Margin="60,20,50,40">
                              </Label>
-                           </Grid>
-                       
-                            </Frame>
-                    <!--kotak putih Low-->
-                  <Frame BackgroundColor="White"
-                         Grid.Row="3"
-                         CornerRadius="40"
-                         HeightRequest="400"
-                         HasShadow="False"
-                         Margin="30,10,30,0">
 
-                          <!--label gain muscle-->
-                    <Label Text="ABS"
-                           FontAttributes="Bold"
-                           FontSize="22"
-                           TextColor="#717171"
-                           Margin="30,0,30,0">
-                        
+                        <Frame BackgroundColor="Purple"
+                               HeightRequest="60"
+                               CornerRadius="30"
+                               Margin="0,0,0,30">
+                            <Grid ColumnDefinitions="*,30">
+                                <Label Text="ABS"
+                                       Grid.Column="0"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,0,0">
+
+                                </Label>
+                                <Label Text=">"
+                                       Grid.Column="1"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       HorizontalOptions="StartAndExpand"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,0,0">
+
+                                     <Label.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToWorkoutVideoPage"/>
+
+                                </Label.GestureRecognizers>
+
+                                </Label>
+
+
+                            </Grid>
+
+                        </Frame>
+                    </StackLayout>
                    
+                         
+                  
+                    </Frame>
 
-                             </Label>
-                           
-
-                            </Frame>
-                   </StackLayout>
+         
+                
               </Grid>
           </Grid>
         </StackLayout>

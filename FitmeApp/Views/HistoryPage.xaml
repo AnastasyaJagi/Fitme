@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FitmeApp.Views.HistoryPage"
+    Visual="Material"
+    xmlns:local="clr-namespace:FitmeApp.ViewModels">
+
+     <!--Background-->
+     <StackLayout>
+      <Grid VerticalOptions="FillAndExpand">
+          <Image Source="Background2" Aspect="AspectFill"/>
+
+          <Grid>
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="200"/>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="150"/>
+                  
+               
+                   </Grid.RowDefinitions>
+
+              <Grid>
+                      <!--Label Question 4-->
+                      <Label TextColor="White"
+                             Text="Workout History"
+                             FontSize="30"
+                             FontAttributes="Bold"
+                             Margin="0,110,0,0"
+                             HorizontalOptions="CenterAndExpand"/>
+                
+          </Grid>
+
+                      
+              
+
+                  <!--kotak putih active level-->
+                  
+                      <Frame Grid.Row="1" BackgroundColor="White"
+
+                          CornerRadius="40"
+                          HeightRequest="100"
+                          HasShadow="True"
+                             Margin="30,0,30,0">
+
+                             <StackLayout  BackgroundColor="Transparent">
+                            <Label Text="Nadia"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           Margin="40,0,0,0"/>
+
+                             <Label Text="2x4 sets"/>
+
+                             <Label Text=" Breaktime 2 times"/>
+
+
+                             </StackLayout>                 
+                          </Frame>
+                    
+                 
+                      
+
+
+           
+
+                       <!--<Frame.GestureRecognizers>
+                                 <TapGestureRecognizer Tapped="NavigateToQ5BodyPartPage"/>
+
+                                </Frame.GestureRecognizers>-->
+                       
+              </Grid>
+          </Grid>
+        </StackLayout>
+         </ContentPage>
+   
+   
+
+
