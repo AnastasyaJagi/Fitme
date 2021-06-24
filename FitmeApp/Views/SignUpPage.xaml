@@ -13,9 +13,9 @@
 
           <Grid>
               <Grid.RowDefinitions>
-                  <RowDefinition Height="180"/>
-                  <RowDefinition Height="*"/>
                   <RowDefinition Height="90"/>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="10"/>
    
                    </Grid.RowDefinitions>
 
@@ -26,7 +26,7 @@
                              Text="Create an account..!"
                              FontSize="35"
                              FontAttributes="Bold"
-                             Margin="0,90,0,0"
+                             Margin="0,20,0,0"
                              HorizontalOptions="CenterAndExpand"/>
                   </Grid>
               </StackLayout>
@@ -41,32 +41,33 @@
               <StackLayout Padding="10">
                   <Entry Placeholder="Full Name"
                          BackgroundColor="Transparent"
-                         Text="{Binding Username}"
-                         Margin="0,0,0,20"
+                         Text="{Binding Users.name}"
+                         Margin="0,0,0,10"
                          TextColor="#717171"
                          FontAttributes="Bold"
                          PlaceholderColor="#717171"/>
 
                   <Entry Placeholder="Email"
                          BackgroundColor="Transparent"
-                         Text="{Binding Password}"
-                         IsPassword="True"
-                         Margin="0,0,0,20"
+                         Text="{Binding Users.email}"
+                         Keyboard="Email"
+                         Margin="0,0,0,10"
                          TextColor="#717171"
                          FontAttributes="Bold"
                          PlaceholderColor="#717171"/>
 
                   <Entry Placeholder="Username"
                          BackgroundColor="Transparent"
-                         Text="{Binding Username}"
-                         Margin="0,0,0,20"
+                         Text="{Binding Users.username}"
+                         Margin="0,0,0,10"
                          TextColor="#717171"
                          FontAttributes="Bold"
                          PlaceholderColor="#717171"/>
 
                   <Entry Placeholder="Password"
                          BackgroundColor="Transparent"
-                         Text="{Binding Username}"
+                         Text="{Binding Users.password}"
+                         IsPassword="True"
                          Margin="0,0,0,20"
                          TextColor="#717171"
                          FontAttributes="Bold"
@@ -80,12 +81,13 @@
                          CornerRadius="25"
                          WidthRequest="350"
                          HeightRequest="55"
+                         Command="{Binding RegisterCommand}"
                          Margin="0,0,0,0"
                          FontAttributes="Bold"
                       
                          />
                   <Grid
-                      Margin="30,20,0,0">
+                      Margin="30,0,0,0">
 
                       <Grid.ColumnDefinitions>
                           <ColumnDefinition Width="210"/>
@@ -111,12 +113,8 @@
                              FontAttributes="Bold"
                          HorizontalOptions="End"
                          >
-                          <Label.GestureRecognizers>
-                              <TapGestureRecognizer Tapped="NavigateToSignUp"/>
-                          </Label.GestureRecognizers>
-
-</Label>
-  </Grid>
+                        </Label>
+                        </Grid>
                       </StackLayout>
                   </Frame>
                   </Grid>

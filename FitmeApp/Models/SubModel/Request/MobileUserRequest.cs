@@ -1,9 +1,8 @@
 ﻿using System;
-namespace FitmeApp.Models
+namespace FitmeApp.Models.SubModel.Request
 {
-    public class User
+    public class MobileUserRequest
     {
-        public string _id { get; set; }
         public string name { get; set; }
         public string email { get; set; }
         public string username { get; set; }
@@ -12,9 +11,7 @@ namespace FitmeApp.Models
         public double height { get; set; }
         public double weight { get; set; }
         public int gender { get; set; }
-        public ActivityLevel activityId { get; set; }
-        public BodyGoal bodygoalId { get; set; }
-        public string createdAt { get; set; }
-        public string updatedAt { get; set; }
+        public string activityId { get; set; }
+        public string bodygoalId { get; set; }
     }
 }

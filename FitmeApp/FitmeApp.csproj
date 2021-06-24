@@ -18,9 +18,11 @@
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
     <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2012" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.12" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\SubModel\" />
+    <Folder Include="Models\SubModel\Request\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />

@@ -14,10 +14,6 @@ namespace FitmeApp.Views
             BindingContext = new SignUpViewModels();
             NavigationPage.SetHasNavigationBar(this, false);
         }
-        public void NavigateToSignUp(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Q1BodyGoalsPage());
-        }
     }
 }
 

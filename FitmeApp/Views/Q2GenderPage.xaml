@@ -49,7 +49,7 @@
                           CornerRadius="40"
                           HeightRequest="150"
                           HasShadow="False"
-                          Margin="30,100,30,30">
+                          Margin="30,0,30,30">
 
                         <Frame.GestureRecognizers>
                                  <TapGestureRecognizer Tapped="NavigateToQ3AgeHeightWeightPage"/>
@@ -74,7 +74,7 @@
                                 FontSize="22"
                                 TextColor="#717171"
                                 Grid.Column="1"
-                                Margin="30,30,10,0">
+                                Margin="30,0,10,0">
 
                             
 
@@ -114,7 +114,7 @@
                            Grid.Column="1"
                            FontSize="22"
                            TextColor="#717171"
-                           Margin="30,30,30,0">
+                           Margin="30,0,30,0">
                         
                    
 

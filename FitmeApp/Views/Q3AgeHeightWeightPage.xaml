@@ -14,7 +14,7 @@
 
           <Grid>
               <Grid.RowDefinitions>
-                  <RowDefinition Height="250"/>
+                  <RowDefinition Height="150"/>
                   <RowDefinition Height="*"/>
                   <RowDefinition Height="200"/>
                
@@ -39,7 +39,7 @@
                              Text="Let's input your basic data?"
                              FontSize="30"
                              FontAttributes="Bold"
-                             Margin="0,70,0,0"
+                             Margin="0,0,0,0"
                              HorizontalOptions="CenterAndExpand"/>
                        </Grid>
                  </StackLayout>

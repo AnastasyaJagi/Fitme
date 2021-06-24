@@ -12,7 +12,7 @@
       <Grid VerticalOptions="FillAndExpand">
           <Image Source="Background2" Aspect="AspectFill"/>
 
-          <Grid>
+          <Grid IsVisible="{Binding ShowContent}">
               <Grid.RowDefinitions>
                   <RowDefinition Height="250"/>
                   <RowDefinition Height="*"/>
@@ -39,7 +39,7 @@
                           CornerRadius="40"
                           HeightRequest="150"
                           HasShadow="False"
-                          Margin="30,100,30,30">
+                          Margin="30,0,30,30">
 
                         <Frame.GestureRecognizers>
                                  <TapGestureRecognizer Tapped="NavigateToQ2GenderPage"/>
@@ -65,7 +65,7 @@
                                 FontSize="22"
                                 TextColor="#717171"
                                 Grid.Column="1"
-                                Margin="30,30,10,0">
+                                Margin="30,0,10,0">
 
                         
                              </Label>
@@ -106,7 +106,7 @@
                            Grid.Column="1"
                            FontSize="22"
                            TextColor="#717171"
-                           Margin="30,30,30,0">
+                           Margin="30,0,30,0">
 
                         
                              </Label>
