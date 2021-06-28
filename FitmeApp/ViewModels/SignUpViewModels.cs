@@ -84,6 +84,9 @@ namespace FitmeApp.ViewModels
                         Console.WriteLine(response.Result);
                         App.Current.MainPage.DisplayAlert("Alert", response.Message, "Ok");
                         CurrentUserId = response.Result._id;
+                        Users._id = CurrentUserId;
+                        // Save to JSON Local
+                        FilesWriter.SharedInstance.SaveToJson(Users,"user.json");
                         NavigateToQ1BodyGoalsPage();
                     }
                     else

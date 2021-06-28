@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
 
 namespace FitmeApp.ViewModels
@@ -7,6 +8,7 @@ namespace FitmeApp.ViewModels
     {
         public LoginViewModel()
         {
+           
         }
     }
 }

@@ -20,7 +20,7 @@ namespace FitmeApp.Views
         }
         public void NavigateToQ1BodyGoalsPage(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new Q1BodyGoalsPage());
+            Navigation.PopAsync();
         }
     }
 }

@@ -6,9 +6,10 @@ using FitmeApp.Utilities.Models;
 using FitmeApp.Utils;
 using FitmeApp.Views;
 using Xamarin.Forms;
+
 namespace FitmeApp.ViewModels
 {
-    public class Q1BodyGoalsViewModels : ValidatableModel
+    public class MainPageViewModel : ValidatableModel
     {
         private bool _showContent;
 
@@ -16,7 +17,7 @@ namespace FitmeApp.ViewModels
         protected readonly string userUrl;
 
 
-        public Q1BodyGoalsViewModels()
+        public MainPageViewModel()
         {
             baseUrl = AppSettingsManager.Settings["BaseUrl"];
             userUrl = AppSettingsManager.Settings["UserUrl"];
@@ -30,7 +31,10 @@ namespace FitmeApp.ViewModels
             var httpRequest = await HttpService.GetAsync<User>($"{baseUrl}{userUrl}/{PreferencesWriter.UserId}"); //{AppSettingsManager.Settings["PertanyaanUrl"]}
             var msg = $"{(httpRequest.Successful ? "" : "Not ")} Found User";
             Users = httpRequest.Result;
-            Console.WriteLine($"{msg} : {Users.name}");
+            if(Users.bodygoalId == null)
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new Q1BodyGoalsPage());
+            }
             ShowContent = new LoadingPopup().showLoading(false);
         }
 

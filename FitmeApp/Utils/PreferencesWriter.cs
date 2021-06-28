@@ -1,4 +1,5 @@
 ﻿using System;
+using FitmeApp.Models;
 using Xamarin.Essentials;
 
 namespace FitmeApp.Utils

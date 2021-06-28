@@ -6,7 +6,7 @@
 
 
     
-    <TabbedPage.Children>
+    <TabbedPage.Children IsVisible="{Binding ShowContent}">
         
         <NavigationPage Title="Home">
             <x:Arguments>

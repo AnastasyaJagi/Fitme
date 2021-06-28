@@ -13,7 +13,7 @@ namespace FitmeApp
         {
             InitializeComponent();
 
-           MainPage= new NavigationPage(new GetStartedPage());
+           MainPage= new NavigationPage(new Q1BodyGoalsPage());
         }
 
         protected override void OnStart()

@@ -12,8 +12,8 @@ namespace FitmeApp.Models
         public double height { get; set; }
         public double weight { get; set; }
         public int gender { get; set; }
-        public ActivityLevel activityId { get; set; }
-        public BodyGoal bodygoalId { get; set; }
+        public string activityId { get; set; }
+        public string bodygoalId { get; set; }
         public string createdAt { get; set; }
         public string updatedAt { get; set; }
     }

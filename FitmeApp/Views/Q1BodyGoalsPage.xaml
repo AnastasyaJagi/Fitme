@@ -12,12 +12,10 @@
       <Grid VerticalOptions="FillAndExpand">
           <Image Source="Background2" Aspect="AspectFill"/>
 
-          <Grid IsVisible="{Binding ShowContent}">
+          <Grid>
               <Grid.RowDefinitions>
                   <RowDefinition Height="250"/>
                   <RowDefinition Height="*"/>
-                  <RowDefinition Height="200"/>
-               
                    </Grid.RowDefinitions>
 
               <!--Label Question 1-->
@@ -34,94 +32,51 @@
 
 
               <!--kotak putih lose weight-->
-              <StackLayout Grid.Row="1" BackgroundColor="Transparent">
-                   <Frame BackgroundColor="White"
-                          CornerRadius="40"
-                          HeightRequest="150"
-                          HasShadow="False"
-                          Margin="30,0,30,30">
+              <StackLayout Grid.Row="1"  Margin="20,0,20,0">
+                  <ListView HasUnevenRows="False"
+                            ItemsSource="{Binding BodyGoals}"
+                            BackgroundColor="Transparent"
+                            RowHeight="120"
+                            CachingStrategy="RecycleElement"
+                            SelectionMode="None"
+                            ItemTapped="ListView_ItemTapped"
+                            SeparatorVisibility="None">
+                      <ListView.ItemTemplate>
+                          <DataTemplate>
+                              <ViewCell>
+                                  <Grid Padding="10">
+                                   <Frame BackgroundColor="White"
+                                    CornerRadius="40"
+                                    HasShadow="False">
+                                    <Grid>
+                                    <!--grid pembagian antara logo dan label di dalam kotak putih-->
+                                        <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                         <!--logo dan label Lose Weight-->
+                                    <Image Source="{Binding img}"
+                                      Grid.Column="0"
+                                      HeightRequest="10"
+                                      Margin="10,0,0,0"/>
 
-                        <Frame.GestureRecognizers>
-                                 <TapGestureRecognizer Tapped="NavigateToQ2GenderPage"/>
+                                    <Label Text="{Binding goal}"
+                                        FontSize="22"
+                                        TextColor="#717171"
+                                        Grid.Column="1"
+                                        Margin="30,0,10,0">
+                                     </Label>
+                                   </Grid>
+                                   </Frame>
+                                  </Grid>
+                                  
+                              </ViewCell>
+                          </DataTemplate>
+                      </ListView.ItemTemplate>
+                  </ListView>
+                   
 
-                                </Frame.GestureRecognizers>
-
-
-                    <Grid>
-
-                <!--grid pembagian antara logo dan label di dalam kotak putih-->
-                    <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                 <!--logo dan label Lose Weight-->
-                       <Image Source="loseweighticon2"
-                              Grid.Column="0"
-                              HeightRequest="10"
-                              Margin="10,0,0,0"/>
-
-                         <Label Text="Lose weight"
-                                FontSize="22"
-                                TextColor="#717171"
-                                Grid.Column="1"
-                                Margin="30,0,10,0">
-
-                        
-                             </Label>
-                           </Grid>
-                       
-
-                            </Frame>
-
-                  <!--kotak putih Gain Muscle-->
-                  <Frame BackgroundColor="White"
-                         Grid.Row="2"
-                         CornerRadius="40"
-                         HeightRequest="150"
-                         HasShadow="False"
-                         Margin="30,10,30,0">
-                      <Frame.GestureRecognizers>
-                                 <TapGestureRecognizer Tapped="NavigateToQ2GenderPage"/>
-
-                                </Frame.GestureRecognizers>
-
-
-
-                     <!--grid pembagian antara logo dan label di dalam kotak putih-->
-                      <Grid>
-           
-                    <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                          <!--Logo dan label gain muscle-->
-                       <Image Source="gainmuscleicon"
-                              Grid.Column="0"
-                              HeightRequest="10"
-                              Margin="10,0,0,0"/>
-
-                    <Label Text="Gain Muscle"
-                           Grid.Column="1"
-                           FontSize="22"
-                           TextColor="#717171"
-                           Margin="30,0,30,0">
-
-                        
-                             </Label>
-                           </Grid>
-                       
-
-                            </Frame>
-
-                  
-                  </StackLayout>
-
-             
-                         
-
-            
+             </StackLayout>
               </Grid>
           </Grid>
          </StackLayout>
