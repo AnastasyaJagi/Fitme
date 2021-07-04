@@ -4,6 +4,8 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Java.Lang;
+using Firebase.Crashlytics;
 
 namespace FitmeApp.Droid
 {

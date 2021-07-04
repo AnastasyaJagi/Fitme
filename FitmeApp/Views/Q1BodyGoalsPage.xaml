@@ -37,8 +37,6 @@
                             ItemsSource="{Binding BodyGoals}"
                             BackgroundColor="Transparent"
                             RowHeight="120"
-                            CachingStrategy="RecycleElement"
-                            SelectionMode="None"
                             ItemTapped="ListView_ItemTapped"
                             SeparatorVisibility="None">
                       <ListView.ItemTemplate>
@@ -74,8 +72,6 @@
                           </DataTemplate>
                       </ListView.ItemTemplate>
                   </ListView>
-                   
-
              </StackLayout>
               </Grid>
           </Grid>

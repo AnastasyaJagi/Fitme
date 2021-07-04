@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using FitmeApp.Models;
+using FitmeApp.Repository;
 using FitmeApp.Services;
 using FitmeApp.Settings;
 using FitmeApp.Utilities.Models;
@@ -44,31 +47,25 @@ namespace FitmeApp.ViewModels
             }
         }
 
-        protected readonly string baseUrl;
-        protected readonly string bodyUrl;
-
         public Q1BodyGoalsViewModels()
         {
-            baseUrl = AppSettingsManager.Settings["BaseUrl"];
-            bodyUrl = AppSettingsManager.Settings["BodyGoalUrl"];
             ShowContent = new LoadingPopup().showLoading(true);
 
             FilesWriter.SharedInstance.ReadJson<User>("user.json", out User resultObj);
             UserData = resultObj;
             Console.WriteLine(UserData._id);
 
-            getBodyGoalData();
+            InitializeBodyGoal();
         }
 
-        private async void getBodyGoalData()
+        public void InitializeBodyGoal()
         {
-            var httpRequest = await HttpService.GetAsync<List<BodyGoal>>($"{baseUrl}{bodyUrl}"); //{AppSettingsManager.Settings["PertanyaanUrl"]}
-            var msg = $"{(httpRequest.Successful ? "" : "Not ")} Found BodyGoal";
-            BodyGoals = httpRequest.Result;
-            ShowContent = new LoadingPopup().showLoading(false);
-            BodyGoals[0].img = "loseweighticon2";
-            BodyGoals[1].img = "gainmuscleicon";
-            Console.WriteLine(msg);
+            Task.Run(async () =>
+            {
+                var bodyGoals = await BodyGoalRepository.Instance.GetBodyGoals();
+                BodyGoals = bodyGoals;
+                ShowContent = new LoadingPopup().showLoading(false);
+            });
         }
 
         public void saveCoice(string bodygoalid)

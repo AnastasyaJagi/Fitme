@@ -15,7 +15,6 @@
               <Grid.RowDefinitions>
                   <RowDefinition Height="200"/>
                   <RowDefinition Height="*"/>
-                  <RowDefinition Height="150"/>
                   
                
                    </Grid.RowDefinitions>
@@ -28,14 +27,11 @@
 
                       <Image.GestureRecognizers>
                                  <TapGestureRecognizer Tapped="NavigateToQ3AgeHeightWeightPage"/>
-
-                                </Image.GestureRecognizers>
-
+                      </Image.GestureRecognizers>
                   </Image>
              
                   <Grid>
-                     
-         
+            
                       <!--Label Question 4-->
                       <Label TextColor="White"
                              Text="What your level activity?"
@@ -48,90 +44,46 @@
 
               <!--kotak putih active level-->
               <StackLayout Grid.Row="1" BackgroundColor="Transparent">
-                   <Frame BackgroundColor="White"
-                          CornerRadius="40"
-                          HeightRequest="90"
-                          HasShadow="False"
-                          Margin="20,20">
+                  <ListView HasUnevenRows="False"
+                            ItemsSource="{Binding ActivityLevels}"
+                            BackgroundColor="Transparent"
+                            RowHeight="180"
+                            ItemTapped="ListView_ItemTapped"
+                            SeparatorVisibility="None">
+                      <ListView.ItemTemplate>
+                          <DataTemplate>
+                              <ViewCell>
+                                  <Grid Padding="10">
+                                   <!--kotak putih Low-->
+                                  <Frame BackgroundColor="White"
+                                         CornerRadius="40"
+                                         HeightRequest="120"
+                                         HasShadow="False"
+                                         >
 
-                       <Frame.GestureRecognizers>
-                                 <TapGestureRecognizer Tapped="NavigateToQ5BodyPartPage"/>
+                                      <StackLayout>
+                                          <!--label low activity-->
+                                    <Label Text="{Binding activity}"
+                                           FontAttributes="Bold"
+                                           FontSize="22"
+                                           TextColor="Black"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Margin="30,0,30,0"/>
 
-                                </Frame.GestureRecognizers>
-                    <!--Label Active level-->
-                        <StackLayout>
-                            <Label Text="Active"
-                                FontAttributes="Bold"
-                                FontSize="22"
-                                TextColor="Black"
-                                HorizontalOptions="CenterAndExpand"
-                                Margin="0"/>
-                            <Label Text="Exercises 5 - 6 times / week"
-                               FontSize="20"
-                               TextColor="#717171"
-                               HorizontalOptions="CenterAndExpand"
-                               Margin="0">
-                            </Label>
-                        </StackLayout>
-      
-                            </Frame>
+                                   <Label Text="Exercises 0 - 2 times / week"
+                                           FontSize="20"
+                                           TextColor="#717171"
+                                           Margin="30,0,30,0">
 
-                  <!--kotak putih Moderate lavel-->
-                  <Frame BackgroundColor="White"
-                         CornerRadius="40"
-                         HeightRequest="90"
-                         HasShadow="False"
-                         Margin="20,20">
-
-                      <StackLayout>
-                      
-                          <!--label gain muscle-->
-                    <Label Text="Moderate"
-                           FontAttributes="bold"
-                           FontSize="22"
-                           TextColor="Black"
-                           HorizontalOptions="CenterAndExpand"
-                           Margin="0"/>
-
-                         <Label Text="Exercises 3 - 4 times / week"
-                               FontSize="20"
-                               TextColor="#717171"
-                               HorizontalOptions="CenterAndExpand"
-                               Margin="0">
-                             </Label>
-                          </StackLayout>
-                            </Frame>
-
-                  <!--kotak putih Low-->
-                  <Frame BackgroundColor="White"
-                         Grid.Row="3"
-                         CornerRadius="40"
-                         HeightRequest="90"
-                         HasShadow="False"
-                         Margin="20,20">
-
-                      <StackLayout>
-                          <!--label low activity-->
-                    <Label Text="Low"
-                           FontAttributes="Bold"
-                           FontSize="22"
-                           TextColor="Black"
-                           HorizontalOptions="CenterAndExpand"
-                           Margin="30,0,30,0"/>
-
-                   <Label Text="Exercises 0 - 2 times / week"
-                           FontSize="20"
-                           TextColor="#717171"
-                           Margin="30,0,30,0">
-
-                          </Label>
+                                          </Label>
                          
-                        </StackLayout>
-                      
-                            </Frame>
-                       
-                  <!--Button next-->
-                  
+                                        </StackLayout>
+                                     </Frame>
+                                  </Grid>
+                              </ViewCell>
+                          </DataTemplate>
+                      </ListView.ItemTemplate>
+                  </ListView>                
                   </StackLayout>
               
               

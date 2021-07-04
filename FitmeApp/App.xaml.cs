@@ -11,9 +11,8 @@ namespace FitmeApp
 
         public App()
         {
-            InitializeComponent();
-
-           MainPage= new NavigationPage(new Q1BodyGoalsPage());
+           InitializeComponent();
+           MainPage= new NavigationPage(new Q5BodyPartPage());
         }
 
         protected override void OnStart()

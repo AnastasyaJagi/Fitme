@@ -54,7 +54,7 @@
               <StackLayout Padding="10">
                   <Entry Placeholder="Age"
                          BackgroundColor="Transparent"
-                         Text="{Binding Username}"
+                         Text="{Binding Age}"
                          Margin="0,0,0,20"
                          TextColor="#717171"
                          FontAttributes="Bold"
@@ -62,7 +62,7 @@
 
                    <Entry Placeholder="Weight"
                          BackgroundColor="Transparent"
-                         Text="{Binding Username}"
+                         Text="{Binding Weight}"
                          Margin="0,0,0,20"
                          TextColor="#717171"
                          FontAttributes="Bold"
@@ -70,7 +70,7 @@
 
                    <Entry Placeholder="Height"
                          BackgroundColor="Transparent"
-                         Text="{Binding Username}"
+                         Text="{Binding Height}"
                          Margin="0,0,0,20"
                          TextColor="#717171"
                          FontAttributes="Bold"

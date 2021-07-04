@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "538520738693",
+    "project_id": "fitmeapp-2be16",
+    "storage_bucket": "fitmeapp-2be16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538520738693:android:54e9c45023919fef3ec2ec",
+        "android_client_info": {
+          "package_name": "com.tasya.fitmeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538520738693-05tlu10ovnln6a54uc0j15k7d3l841ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgQZrQbJ0m3JhGGdrwqqsdkRM26NKzRNE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538520738693-05tlu10ovnln6a54uc0j15k7d3l841ps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
