@@ -23,16 +23,12 @@ namespace FitmeApp.Views
         public void NavigateToGetRecommendationPages(object sender, System.EventArgs a)
 
         {
-            for (int i = 0; i < ViewModel.ListSelectedBodyPart.Count; i++)
+            if(ViewModel.ListSelectedBodyPart.Count > 0)
             {
-                Console.WriteLine(ViewModel.ListSelectedBodyPart[i]._id);
+                // save user to db
+                ViewModel.putPenggunaAsync();
             }
-            // save user to db
-            ViewModel.putPenggunaAsync();
-            // save body part to files
-            ViewModel.saveBodyPart();
-            // navigate
-            Navigation.PushAsync(new MainPage());
+
         }
 
         WorkoutType previousModel;

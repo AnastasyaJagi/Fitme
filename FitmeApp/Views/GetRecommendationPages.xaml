@@ -13,53 +13,45 @@
 
           <Grid>
               <Grid.RowDefinitions>
-                  <RowDefinition Height="230"/>
+                  <RowDefinition Height="100"/>
                   <RowDefinition Height="*"/>
-                  <RowDefinition Height="90"/>
                
                    </Grid.RowDefinitions>
 
-          
-                      <!--Label Question 1-->
+                    <StackLayout Margin="20,20,0,0">
+                        <!--Label Question 1-->
                       <Label TextColor="White"
                              Text="Hi Tasya, "
                              FontSize="30"
                              FontAttributes="Bold"
-                             Margin="20,100,0,50"/>
+                             />
                       
                       <Label TextColor="white"
                             Text="This is your body workout type"
                             FontSize="25"
-                            Margin="20,145,0,0"
                            />
-
-                  <Label TextColor="white"
-                            Text="recommendation : "
-                            FontSize="25"
-                            Margin="20,10,0,10"/>
-
-                     
-
+                    </StackLayout>
               
               <!--Kotak putih output-->
-              
              
                    <Frame BackgroundColor="White"
                           Grid.Row="1"
-                          CornerRadius="40"
+                          CornerRadius="20"
                           HeightRequest="500"
                           HasShadow="False"
-                          Margin="30,10,30,0">
-                    
-                       
+                          Margin="20,10,20,0">
                     <StackLayout>
                          <!--Label Active level-->
-                        <Label Text="Level Beginer"
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Level"
                                 FontAttributes="Bold"
                                 FontSize="30"
-                                TextColor="#717171"
-                                Margin="60,20,50,40">
-                             </Label>
+                                TextColor="#717171"/>
+                            <Label Text="{Binding TitleWorkoutResult}"
+                                FontAttributes="Bold"
+                                FontSize="30"
+                                TextColor="#717171"/>
+                        </StackLayout>
 
                         <Frame BackgroundColor="Purple"
                                HeightRequest="60"

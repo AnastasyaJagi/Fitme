@@ -10,8 +10,8 @@ namespace FitmeApp.Repository
         private readonly List<Gender> genderList
            = new List<Gender>()
            {
-                new Gender(){ id=0, gender = "Male", img = "loseweighticon2"},
-                new Gender(){ id=1, gender = "Female", img = "gainmuscleicon"},
+                new Gender(){ id=1, gender = "Male", img = "loseweighticon2"},
+                new Gender(){ id=2, gender = "Female", img = "gainmuscleicon"},
            };
 
         public List<Gender> getGender()

@@ -83,6 +83,7 @@ namespace FitmeApp.ViewModels
             }
         }
 
+
         public async void putPenggunaAsync()
         {
             try
@@ -97,10 +98,13 @@ namespace FitmeApp.ViewModels
                     {
                         if (response.StatusCode == HttpStatusCode.OK)
                         {
-                            //AppSettings.AddOrUpdateValue("Username", UserName);
                             Console.WriteLine(response.StatusCode);
                             Console.WriteLine(response.Message);
-                            Console.WriteLine(response.Result);
+                            FilesWriter.SharedInstance.SaveToJson(UserData, "user.json");
+                            // save body part to files
+                            saveBodyPart();
+                            // navigate to home
+                            NavigateToHome();
                             App.Current.MainPage.DisplayAlert("Alert", response.Message, "Ok");
                         }
                         else
@@ -124,6 +128,11 @@ namespace FitmeApp.ViewModels
             if (ListSelectedBodyPart.Count > 0) {
                 FilesWriter.SharedInstance.SaveToJson(ListSelectedBodyPart, "bodypart.json");
             }
+        }
+
+        public async void NavigateToHome()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
         }
     }
 }
