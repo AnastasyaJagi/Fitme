@@ -14,9 +14,15 @@ namespace FitmeApp.Views
             BindingContext = new WorkoutVideoViewModel();
             NavigationPage.SetHasNavigationBar(this, false);
         }
-        public void NavigateToHistoryPage(object sender, System.EventArgs e)
+        public void NavigateToHome(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new HistoryPage());
+            Navigation.PopAsync();
         }
+
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            
+        }
+
     }
 }

@@ -21,7 +21,7 @@
                     <StackLayout Margin="20,20,0,0">
                         <!--Label Question 1-->
                       <Label TextColor="White"
-                             Text="Hi Tasya, "
+                             Text="{Binding DisplayUsername}"
                              FontSize="30"
                              FontAttributes="Bold"
                              />
@@ -30,6 +30,7 @@
                             Text="This is your body workout type"
                             FontSize="25"
                            />
+                       
                     </StackLayout>
               
               <!--Kotak putih output-->
@@ -42,6 +43,31 @@
                           Margin="20,10,20,0">
                     <StackLayout>
                          <!--Label Active level-->
+                        <!--<StackLayout Orientation="Horizontal">
+                           <Label Text="Play With MediaPlayer"
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center"
+                            Margin="0,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="PlayWithMedia"/>
+                            </Label.GestureRecognizers>
+                         </Label>
+                            <Label Text="Play With ExoPlayer"
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            TextColor="Black"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center"
+                            Margin="0,0,0,0">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="PlayWithExo"/>
+                            </Label.GestureRecognizers>
+                         </Label>
+                        </StackLayout>-->
+<!---->                 <!--Title-->
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                             <Label Text="Level"
                                 FontAttributes="Bold"
@@ -52,48 +78,98 @@
                                 FontSize="30"
                                 TextColor="#717171"/>
                         </StackLayout>
+                        <!-- Content -->
 
-                        <Frame BackgroundColor="Purple"
-                               HeightRequest="60"
-                               CornerRadius="30"
-                               Margin="0,0,0,30">
-                            <Grid ColumnDefinitions="*,30">
-                                <Label Text="ABS"
-                                       Grid.Column="0"
-                                       FontAttributes="Bold"
-                                       TextColor="Black"
-                                       HorizontalOptions="StartAndExpand"
-                                       VerticalOptions="Center"
-                                       Margin="0,0,0,0">
+                        <StackLayout>
+                            <!--Your Pick Section-->
+                            <!--<Label Text="Your Pick"
+                                   FontSize="15"
+                                   TextColor="Black"
+                                   FontAttributes="Bold"
+                                   />
+                            <CarouselView
+                                ItemsSource="{Binding ListSelectedBodyPart}"
+                                WidthRequest="20"
+                                >
+                                <CarouselView.ItemTemplate>
+                                  <DataTemplate>
+                                      <Grid Padding="10">
+                                       kotak putih Low
+                                       <Frame BackgroundColor="#6974CF"
+                                           CornerRadius="30"
+                                           Margin="0,0,0,0">
+                                        <Grid ColumnDefinitions="*,20">
+                                            <Label Text="{Binding workout_type}"
+                                                   Grid.Column="0"
+                                                   FontAttributes="Bold"
+                                                   TextColor="Black"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   VerticalOptions="Center"
+                                                   Margin="0,0,0,0">
 
-                                </Label>
-                                <Label Text=">"
-                                       Grid.Column="1"
-                                       FontAttributes="Bold"
-                                       TextColor="Black"
-                                       HorizontalOptions="StartAndExpand"
-                                       VerticalOptions="Center"
-                                       Margin="0,0,0,0">
+                                            </Label>
+                                        </Grid>
+                                    </Frame>
+                                      </Grid>
+                                  </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                              </CarouselView>-->
 
-                                     <Label.GestureRecognizers>
-                                 <TapGestureRecognizer Tapped="NavigateToWorkoutVideoPage"/>
+                             <!--End Your Pick Section-->
+                             <!--All Workout Section-->
+                            <Label Text="All Workout"
+                                   FontSize="15"
+                                   TextColor="Black"
+                                   FontAttributes="Bold"
+                                   />
+                            <ListView HasUnevenRows="False"
+                            ItemsSource="{Binding ListWorkout}"
+                            BackgroundColor="Transparent"
+                            RowHeight="100"
+                            SelectionMode="None"
+                            ItemTapped="ListView_ItemTapped"
+                            SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
+                              <DataTemplate>
+                                  <ViewCell>
+                                      <Grid Padding="10">
+                                       <!--kotak putih Low-->
+                                       <Frame BackgroundColor="#6974CF"
+                                           HeightRequest="60"
+                                           CornerRadius="30"
+                                           Margin="0,0,0,0">
+                                        <Grid ColumnDefinitions="*,30">
+                                            <Label Text="{Binding workout_type.workout_type}"
+                                                   Grid.Column="0"
+                                                   FontAttributes="Bold"
+                                                   TextColor="Black"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   VerticalOptions="Center"
+                                                   Margin="0,0,0,0">
 
-                                </Label.GestureRecognizers>
-
-                                </Label>
-
-
-                            </Grid>
-
-                        </Frame>
+                                            </Label>
+                                            <Label Text=">"
+                                                   Grid.Column="1"
+                                                   FontAttributes="Bold"
+                                                   TextColor="Black"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   VerticalOptions="Center"
+                                                   Margin="0,0,0,0">
+                                                 <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="NavigateToWorkoutVideoPage"/>
+                                                 </Label.GestureRecognizers>
+                                            </Label>
+                                        </Grid>
+                                    </Frame>
+                                      </Grid>
+                                  </ViewCell>
+                              </DataTemplate>
+                          </ListView.ItemTemplate>
+                        </ListView>
+                        <!--End All Workout Section-->
+                        </StackLayout>
                     </StackLayout>
-                   
-                         
-                  
                     </Frame>
-
-         
-                
               </Grid>
           </Grid>
         </StackLayout>

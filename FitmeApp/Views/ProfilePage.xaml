@@ -2,10 +2,45 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tabs="clr-namespace:Sharpnado.Tabs;assembly=Sharpnado.Tabs"
     x:Class="FitmeApp.Views.ProfilePage"
     Visual="Material"
      xmlns:local="clr-namespace:FitmeApp.ViewModels">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Title" TargetType="Label">
+                <Setter Property="FontSize" Value="Title" />
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="FormsStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="0,0,0,10"/>
+                <Setter Property="TextColor" Value="#6974CF"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="PlaceholderColor" Value="#717171"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+            <Style x:Key="SubFormsStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Subtitle"/>
+            </Style>
+             <!-- Style for Tabs-->
+            <Style x:Key="SegmentedTabStyle" TargetType="tabs:SegmentedTabItem">
+                        <Setter Property="SelectedTabColor" Value="#6974CF" />
+                        <Setter Property="LabelSize" Value="12" />
+                        <Setter Property="Padding" Value="20,0,20,0"/>
+                        <Setter Property="SelectedLabelColor" Value="#FFFF"/>
+                        <Setter Property="UnselectedLabelColor" Value="#717171" />
+            </Style>
+            <Style x:Key="TabHostStyle" TargetType="tabs:TabHostView">
+                <Setter Property="SegmentedOutlineColor" Value="#6974CF" />
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <!--Background-->
      <StackLayout>
       <Grid VerticalOptions="FillAndExpand">
@@ -13,12 +48,105 @@
 
           <Grid>
               <Grid.RowDefinitions>
-                  <RowDefinition Height="200"/>
+                  <RowDefinition Height="50"/>
                   <RowDefinition Height="*"/>
-                  <RowDefinition Height="180"/>
-   
-                   </Grid.RowDefinitions>
-              </Grid>
+                  <RowDefinition Height="70"/>
+              </Grid.RowDefinitions>
+                <!--Title-->
+              <StackLayout Grid.Row="0"
+                           Orientation="Horizontal"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           >
+                  <Label Text="Arfi" Style="{StaticResource Title}"/>
+                  <Label Text="'s Profile" Style="{StaticResource Title}"/>
+              </StackLayout>
+               <!--Forms-->
+
+                  <Frame BackgroundColor="White"
+                         Grid.Row="1"
+                         HeightRequest="450"
+                         CornerRadius="40"
+                         Margin="20,0"
+                         HasShadow="False">
+                    <Grid RowDefinitions="40,*">
+                        <tabs:TabHostView x:Name="TabHost"
+                        Style="{StaticResource TabHostStyle}"
+                        Grid.Row="0"
+                        IsSegmented="True"
+                        SegmentedHasSeparator="True"
+                        IsVisible="True"
+                        TabType="Fixed"
+                        SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+                        <tabs:TabHostView.Tabs>
+                            <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="General" />
+                            <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Body" />
+                            <tabs:SegmentedTabItem Style="{StaticResource SegmentedTabStyle}" Label="Preference"/> 
+                        </tabs:TabHostView.Tabs>
+                        </tabs:TabHostView>
+                        <tabs:ViewSwitcher
+                            x:Name="Switcher"
+                            IsVisible="True"
+                            Grid.Row="1"
+                          SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+                        <StackLayout x:Name="General">
+                            <Entry Placeholder="Name"
+                             Text="{Binding UserData.name}"
+                             Style="{StaticResource FormsStyle}"/>
+                        <Entry Placeholder="Email"
+                             Text="{Binding UserData.email}"
+                             Keyboard="Email"
+                             Style="{StaticResource FormsStyle}"/>
+                        <Entry Placeholder="Username"
+                             Text="{Binding UserData.username}"
+                             Style="{StaticResource FormsStyle}"/>
+                        <Entry Placeholder="Password"
+                             Text="{Binding UserData.password}"
+                             IsPassword="True"
+                             Style="{StaticResource FormsStyle}"/>
+                        </StackLayout>
+                        <StackLayout x:Name="Body">  
+                        <Entry Placeholder="Age"
+                             Text="{Binding UserData.age}"
+                             Style="{StaticResource FormsStyle}"/>
+                        <Entry Placeholder="Gender"
+                             Text="{Binding UserData.gender}"
+                             Style="{StaticResource FormsStyle}"/>
+                        <Entry Placeholder="Weight"
+                             Text="{Binding UserData.weight}"
+                             Style="{StaticResource FormsStyle}"/>
+                        <Entry Placeholder="Height"
+                             Text="{Binding UserData.height}"
+                             Style="{StaticResource FormsStyle}"/>
+                        </StackLayout>
+                        <StackLayout x:Name="Preference">  
+                        <Entry Placeholder="Activity"
+                             Text="{Binding UserData.activityId}"
+                             Style="{StaticResource FormsStyle}"/>
+                        <Entry Placeholder="Body Goal"
+                             Text="{Binding UserData.bodygoalId}"
+                             Style="{StaticResource FormsStyle}"/>
+                        </StackLayout>
+                        </tabs:ViewSwitcher>
+                    </Grid>
+                  </Frame>
+               <!--Button-->
+              <StackLayout Grid.Row="2" BackgroundColor="Transparent">
+                      <Button Text="Save"
+                              TextColor="#6974CF"
+                              FontSize="20"
+                              BackgroundColor="White"
+                              Margin="0,0,0,0"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand"
+                         CornerRadius="30"
+                         WidthRequest="200"
+                         HeightRequest="50"
+                         FontAttributes="Bold"
+                         Clicked="Save_Clicked"
+                         />
+             </StackLayout>
+          </Grid>
           </Grid>
          </StackLayout>
 </ContentPage>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using MediaManager;
 using UIKit;
 
 namespace FitmeApp.iOS
@@ -22,13 +23,15 @@ namespace FitmeApp.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-#if ENABLE_TEST_CLOUD
+            #if ENABLE_TEST_CLOUD
             Xamarin.Calabash.Start();
 
-#endif
+            #endif
             Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.Forms.FormsMaterial.Init();
+            CrossMediaManager.Current.Init();
+            Sharpnado.Tabs.iOS.Preserver.Preserve();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.OS;
 using Java.Lang;
 using Firebase.Crashlytics;
+using MediaManager;
 
 namespace FitmeApp.Droid
 {
@@ -18,6 +19,10 @@ namespace FitmeApp.Droid
 
             Rg.Plugins.Popup.Popup.Init(this);
 
+            FirebaseCrashlytics.Instance.SendUnsentReports();
+
+            CrossMediaManager.Current.Init(this);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             global::Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
@@ -28,6 +33,12 @@ namespace FitmeApp.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            //throw new NullPointerException("This is a nexted exception");
         }
     }
 }

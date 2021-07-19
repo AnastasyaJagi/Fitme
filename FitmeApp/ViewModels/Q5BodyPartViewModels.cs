@@ -86,40 +86,18 @@ namespace FitmeApp.ViewModels
 
         public async void putPenggunaAsync()
         {
-            try
-            {
-                if(UserData != null)
+                if (UserData != null)
                 {
-                    var url = $"{AppSettingsManager.Settings["BaseUrl"]}{AppSettingsManager.Settings["UserUrl"]}/{UserData._id}";
-                    if (await HttpServiceHelper.ProcessHttpRequestAsync<MobileUserRequest, ResponseUser>(
-                            HttpMethod.Put, $"{url}",
-                            new MobileUserRequest { name = UserData.name, email = UserData.email, password = UserData.password, username = UserData.username, age = UserData.age, height = UserData.height, weight = UserData.weight, gender = UserData.gender, activityId = UserData.activityId, bodygoalId = UserData.bodygoalId })
-                        is BaseHttpResponse<ResponseUser> response)
+                    ResponseUser resultAdd = await UserRepository.Instance.UpdateUser(UserData);
+                    if (resultAdd != null)
                     {
-                        if (response.StatusCode == HttpStatusCode.OK)
-                        {
-                            Console.WriteLine(response.StatusCode);
-                            Console.WriteLine(response.Message);
-                            FilesWriter.SharedInstance.SaveToJson(UserData, "user.json");
-                            // save body part to files
-                            saveBodyPart();
-                            // navigate to home
-                            NavigateToHome();
-                            App.Current.MainPage.DisplayAlert("Alert", response.Message, "Ok");
-                        }
-                        else
-                        {
-                            App.Current.MainPage.DisplayAlert("Alert", response.Message, "Ok");
-                            return;
-                        }
+                        // save body part to files
+                        saveBodyPart();
+                        // navigate to home
+                        NavigateToHome();
                     }
                 }
-                
-            }
-            catch (InvalidOperationException exception)
-            {
-                App.Current.MainPage.DisplayAlert("Alert", exception.Message, "Ok");
-            }
+
         }
 
         public void saveBodyPart()

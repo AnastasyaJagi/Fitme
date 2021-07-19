@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using FitmeApp.Models;
 using FitmeApp.Models.SubModel.Request;
+using FitmeApp.Repository;
 using FitmeApp.Settings;
 using FitmeApp.Utilities.Helper;
 using FitmeApp.Utilities.Models;
@@ -16,8 +18,6 @@ namespace FitmeApp.ViewModels
     public class SignUpViewModels : ValidatableModel
     {
         private User users;
-        protected readonly string baseUrl;
-        protected readonly string userUrl;
 
         public SignUpViewModels()
         {
@@ -26,23 +26,7 @@ namespace FitmeApp.ViewModels
             Users.age = 0;
             Users.weight = 0;
             Users.height = 0;
-            baseUrl = AppSettingsManager.Settings["BaseUrl"];
-            userUrl = AppSettingsManager.Settings["UserUrl"];
             RegisterCommand = new Command(() => postPenggunaAsync());
-        }
-
-        public string CurrentUserId
-        {
-            get
-            {
-                string id = PreferencesWriter.UserId;
-                if (id == "")
-                {
-                    id = "";
-                }
-                return id;
-            }
-            set => PreferencesWriter.UserId = value;
         }
 
         public User Users
@@ -70,31 +54,12 @@ namespace FitmeApp.ViewModels
         {
             try
             {
-                var url = $"{AppSettingsManager.Settings["BaseUrl"]}{AppSettingsManager.Settings["UserUrl"]}";
-                if (await HttpServiceHelper.ProcessHttpRequestAsync<MobileUserRequest, ResponseUser>(
-                        HttpMethod.Post, $"{url}",
-                        new MobileUserRequest { name = Users.name, email = Users.email, password = Users.password, username = Users.username, age = Users.age, height = Users.height, weight = Users.weight, gender= Users.age, activityId= "null", bodygoalId="null" })
-                    is BaseHttpResponse<ResponseUser> response)
+                ResponseUser resultAdd = await UserRepository.Instance.AddUser(Users);
+                if(resultAdd != null)
                 {
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        //AppSettings.AddOrUpdateValue("Username", UserName);
-                        Console.WriteLine(response.StatusCode);
-                        Console.WriteLine(response.Message);
-                        Console.WriteLine(response.Result);
-                        App.Current.MainPage.DisplayAlert("Alert", response.Message, "Ok");
-                        CurrentUserId = response.Result._id;
-                        Users._id = CurrentUserId;
-                        // Save to JSON Local
-                        FilesWriter.SharedInstance.SaveToJson(Users,"user.json");
-                        NavigateToQ1BodyGoalsPage();
-                    }
-                    else
-                    {
-                        App.Current.MainPage.DisplayAlert("Alert", response.Message, "Ok");
-                        return;
-                    }
+                    NavigateToQ1BodyGoalsPage();
                 }
+                
             }
             catch (InvalidOperationException exception)
             {

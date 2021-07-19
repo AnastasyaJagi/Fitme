@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="FitmeApp.Views.WorkoutVideoPage"
     Visual="Material"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:local="clr-namespace:FitmeApp.ViewModels">
 
      <!--Background-->
@@ -13,10 +14,29 @@
 
           <Grid>
               <Grid.RowDefinitions>
-                  <RowDefinition Height="200"/>
+                  <RowDefinition Height="90"/>
                   <RowDefinition Height="*"/>
-                  
-                   </Grid.RowDefinitions>
+              </Grid.RowDefinitions>
+              <!--Logo back-->
+              <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" Grid.Row="0" >
+                  <Image Source="backicon"
+                         Margin="0"
+                         HeightRequest="35">
+                      <Image.GestureRecognizers>
+                          <TapGestureRecognizer Tapped="NavigateToHome" />
+                      </Image.GestureRecognizers>
+                  </Image>
+               <Grid>
+               <Label Grid.Row="0"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     Margin="30,0,0,0"
+                     TextColor="White"
+                     FontAttributes="Bold"
+                     FontSize="40"
+                     Text="Workout Detail"/>
+              </Grid>
+              </StackLayout>
               
                      <!--kotak putih active level-->
               <StackLayout Grid.Row="1" BackgroundColor="Transparent">
@@ -24,49 +44,61 @@
                           CornerRadius="40"
                           HeightRequest="500"
                           HasShadow="False"
-                          Margin="20,20,20,30">
+                          Margin="20,0,20,30">
 
                        <!--<Frame.GestureRecognizers>
                                  <TapGestureRecognizer Tapped="NavigateToQ5BodyPartPage"/>
 
                                 </Frame.GestureRecognizers>-->
                        <StackLayout>
-                        <Label Text="ABS"
-                               FontSize="30"
-                               HorizontalOptions="CenterAndExpand"
-                               FontAttributes="Bold">
-
-                        </Label>
-                           
-                           <Frame HeightRequest="80" HasShadow="True"
-                                  CornerRadius="30">
-                               <Frame.GestureRecognizers>
-                                 <TapGestureRecognizer Tapped="NavigateToHistoryPage"/>
-</Frame.GestureRecognizers>
-                            <StackLayout>
-                                <Label Text="Push UP"
-                                       FontAttributes="Bold"
-                                      FontSize="20"
-                                      Margin="0,0,0,0"/>
-                                <Label Text="2 X 4 Sets"/>
-                                <Label Text=" Breaktime 2 times"/>
-                            </StackLayout>
-                          
-
-                          
-                          
-                         
-
-                               </Frame>
+                        <ListView HasUnevenRows="False"
+                            ItemsSource="{Binding WorkoutList}"
+                            BackgroundColor="Transparent"
+                            RowHeight="200"
+                            ItemTapped="ListView_ItemTapped"
+                            SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
+                              <DataTemplate>
+                                  <ViewCell>
+                                      <Grid Padding="10">
+                                        <Label Text="ABS"
+                                               FontSize="30"
+                                               TextColor="#717171"
+                                               HorizontalOptions="CenterAndExpand"
+                                               FontAttributes="Bold">
+                                        </Label>
+                                           <Frame HeightRequest="80"
+                                                  BackgroundColor="#6974CF"
+                                                  HasShadow="True"
+                                                  CornerRadius="30">
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout>
+                                                    <Label Text="{Binding workout_name}"
+                                                           FontAttributes="Bold"
+                                                          FontSize="20"
+                                                          Margin="0,0,0,0"/>
+                                                    <Label Text="{Binding repetition}"/>
+                                                    <Label Text="{Binding rest_time}"/>
+                                                </StackLayout>
+                                                <WebView VerticalOptions="FillAndExpand"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    Source="{Binding workout_link}"
+                                                    WidthRequest="200"
+                                                    HeightRequest="200"
+                                                    IsVisible="true"/>
+                                            </StackLayout>
+                                            
+                                           </Frame>
+                                      </Grid>
+                                      </ViewCell>
+                                  </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
                         </StackLayout>
                        </Frame>
-                  
-                  </StackLayout>
-        
-                         
+                  </StackLayout>       
               </Grid>
-
           </Grid>
-       
      </StackLayout>
 </ContentPage>
