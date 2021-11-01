@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FitmeApp.Models;
+using FitmeApp.Models.SubModel;
 using FitmeApp.Models.SubModel.Request;
 using FitmeApp.Repository;
 using FitmeApp.Settings;
@@ -83,6 +84,17 @@ namespace FitmeApp.ViewModels
             }
         }
 
+        private CaseResult userResult;
+        public CaseResult UserResult
+        {
+            get => userResult;
+            set
+            {
+                userResult = value;
+                RaisePropertyChanged(nameof(UserResult));
+            }
+        }
+
 
         public async void putPenggunaAsync()
         {
@@ -91,13 +103,45 @@ namespace FitmeApp.ViewModels
                     ResponseUser resultAdd = await UserRepository.Instance.UpdateUser(UserData);
                     if (resultAdd != null)
                     {
-                        // save body part to files
-                        saveBodyPart();
-                        // navigate to home
-                        NavigateToHome();
+                        int k = 3;
+                        // Get similarity data & save to local
+                        UserResult = await PerhitunganRepository.Instance.GetPerhitungan(UserData._id, k);
+                        saveUserCase();
+                        // Save to case with 'not confirmed status'
+                        ResponseUser resultAddCase = await CaseBaseRepository.Instance.AddCaseBase(UserData._id, UserResult.output._id, 0);
+                        if(resultAddCase != null)
+                        {
+                            // Save to history
+                            HistoryRequest historyRequest = new HistoryRequest();
+                            historyRequest.k = k;
+                            historyRequest.userId = UserData._id;
+                            historyRequest.caseSimilarity = UserResult.dataSimilarity;
+                            historyRequest.exercise_type = UserResult.output.exercise_level_detail;
+                            ResponseUser resultHistory = await HistoryRepository.Instance.AddHistory(historyRequest);
+                            if(resultHistory!= null)
+                            {
+                                // save body part to files
+                                saveBodyPart();
+                                // navigate to home
+                                NavigateToHome();
+                            }
+                            else
+                            {
+                               await App.Current.MainPage.DisplayAlert("Failed", "Cannot Add User!", "Ok");
+                            }
+                        }
                     }
                 }
 
+        }
+
+        public void saveUserCase()
+        {
+            // Save to JSON Local
+            if (UserResult != null)
+            {
+                FilesWriter.SharedInstance.SaveToJson(UserResult, "user_case.json");
+            }
         }
 
         public void saveBodyPart()

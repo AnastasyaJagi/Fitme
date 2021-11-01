@@ -13,7 +13,7 @@ namespace FitmeApp
         {
            InitializeComponent();
            Sharpnado.Tabs.Initializer.Initialize(true, false);
-           MainPage = new NavigationPage(new MainPage());
+           MainPage = new NavigationPage(new GetStartedPage());
         }
 
         protected override void OnStart()

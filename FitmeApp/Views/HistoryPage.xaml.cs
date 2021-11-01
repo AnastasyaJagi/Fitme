@@ -11,9 +11,14 @@ namespace FitmeApp.Views
         public HistoryPage()
         {
             InitializeComponent();
-            BindingContext = new HistoryPageViewModel();
+            BindingContext = new HistoryViewModel();
             NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            
         }
     } 
      
-    }
+}

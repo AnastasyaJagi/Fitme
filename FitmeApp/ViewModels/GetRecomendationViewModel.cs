@@ -16,6 +16,8 @@ namespace FitmeApp.ViewModels
 {
     public class GetRecomendationViewModel : ValidatableModel
     {
+
+        // Variables
         private bool _showContent;
 
         protected readonly string baseUrl;
@@ -32,23 +34,28 @@ namespace FitmeApp.ViewModels
             UserData = resultObj;
             if (UserData != null)
             {
+                // Get User case result
+                FilesWriter.SharedInstance.ReadJson<CaseResult>("user_case.json", out CaseResult caseResultObj);
+                CaseResultData = caseResultObj;
+                ListWorkout = CaseResultData.output.workout;
+                TitleWorkoutResult = CaseResultData.output.exercise_level_detail;     
                 Console.WriteLine(UserData._id);
                 DisplayUsername = $"Hi, {UserData.name}";
-                PostSimilarityAsync();
+                ShowContent = new LoadingPopup().showLoading(false);
             }
             // Get selected workout data from json
             FilesWriter.SharedInstance.ReadJson<List<WorkoutType>>("bodypart.json", out List<WorkoutType> resultWo);
             ListSelectedBodyPart = resultWo;
         }
 
-        private CaseResult caseResult;
-        public CaseResult CaseResult
+        private CaseResult caseResultData;
+        public CaseResult CaseResultData
         {
-            get => caseResult;
+            get => caseResultData;
             set
             {
-                caseResult = value;
-                RaisePropertyChanged(nameof(CaseResult));
+                caseResultData = value;
+                RaisePropertyChanged(nameof(CaseResultData));
             }
         }
 
@@ -115,10 +122,6 @@ namespace FitmeApp.ViewModels
                 RaisePropertyChanged(nameof(DisplayUsername));
             }
         }
-
-
-        // Variables
-
         private string _titleWorkoutResult;
         public string TitleWorkoutResult
         {
@@ -127,47 +130,6 @@ namespace FitmeApp.ViewModels
             {
                 _titleWorkoutResult = value;
                 RaisePropertyChanged(nameof(TitleWorkoutResult));
-            }
-        }
-
-        public async void PostSimilarityAsync()
-        {
-            try
-            {
-                if (UserData != null)
-                {
-                    var url = $"{baseUrl}{perhitunganUrl}";
-                    if (await HttpServiceHelper.ProcessHttpRequestAsync<MobileSimilarityRequest, CaseResult>(
-                            HttpMethod.Post, $"{url}",
-                            new MobileSimilarityRequest { dataUser = UserData._id, k = 3 })
-                        is BaseHttpResponse<CaseResult> response)
-                    {
-                        if (response.StatusCode == HttpStatusCode.OK)
-                        {
-                            
-                            CaseResult = response.Result;
-                            ListWorkout = CaseResult.output.workout;
-                            TitleWorkoutResult = CaseResult.output.exercise_level_detail;
-                            Console.WriteLine(YourWorkout.Count);
-                            Console.WriteLine(response.StatusCode);
-                            Console.WriteLine(response.Message);
-                            Console.WriteLine(CaseResult.dataSimilarity[0].name);
-                            Console.WriteLine(CaseResult.k);
-
-                            ShowContent = new LoadingPopup().showLoading(false);
-                        }
-                        else
-                        {
-                            App.Current.MainPage.DisplayAlert("Alert", response.Message, "Ok");
-                            return;
-                        }
-                    }
-                }
-
-            }
-            catch (InvalidOperationException exception)
-            {
-                App.Current.MainPage.DisplayAlert("Alert", exception.Message, "Ok");
             }
         }
 

@@ -17,7 +17,18 @@ namespace FitmeApp.Views
 
         void Save_Clicked(System.Object sender, System.EventArgs e)
         {
-            ViewModel.putPenggunaAsync();
+            if(ViewModel.UserData.activityId == ViewModel.SelectedActivity._id && ViewModel.UserData.bodygoalId == ViewModel.SelectedBody._id)
+            {
+                Console.WriteLine("Same");
+                ViewModel.NavigateToHome();
+            }
+            else
+            {
+                ViewModel.UserData.activityId = ViewModel.SelectedActivity._id;
+                ViewModel.UserData.bodygoalId = ViewModel.SelectedBody._id;
+                ViewModel.putPenggunaAsync();
+            }
+
         }
     }
 }

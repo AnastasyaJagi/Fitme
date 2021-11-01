@@ -38,5 +38,24 @@ namespace FitmeApp.Repository
                 return null;
             }
         }
+
+        public async Task<BodyGoal> GetBodyGoalById(string id)
+        {
+            try
+            {
+                var httpRequest = await HttpService.GetAsync<BodyGoal>($"{baseUrl}{bodyUrl}/{id}"); //{AppSettingsManager.Settings["PertanyaanUrl"]}
+                var msg = $"{(httpRequest.Successful ? "" : "Not ")} Found BodyGoal";
+                BodyGoal userBody = httpRequest.Result;
+                userBody.img = "loseweighticon2";
+                userBody.img = "gainmuscleicon";
+                Console.WriteLine(msg);
+                return userBody;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Api - an error has occured : " + e.Message);
+                return null;
+            }
+        }
     }
 }

@@ -119,13 +119,29 @@
                              Text="{Binding UserData.height}"
                              Style="{StaticResource FormsStyle}"/>
                         </StackLayout>
-                        <StackLayout x:Name="Preference">  
-                        <Entry Placeholder="Activity"
-                             Text="{Binding UserData.activityId}"
-                             Style="{StaticResource FormsStyle}"/>
-                        <Entry Placeholder="Body Goal"
-                             Text="{Binding UserData.bodygoalId}"
-                             Style="{StaticResource FormsStyle}"/>
+                        <StackLayout x:Name="Preference">
+                        <StackLayout Orientation="Horizontal" Margin="15,20,0,0">
+                            <Label Text="Current Activity :" Style="{StaticResource FormsStyle}"/>
+                            <Label Text="{Binding SelectedActivity.activity}" Style="{StaticResource FormsStyle}" TextColor="Black"/>
+                        </StackLayout>
+                        <Picker x:Name="pickerActivity"
+                                Title="Change your Activity"
+                                Style="{StaticResource FormsStyle}"
+                                ItemsSource="{Binding ActivityLevels}"
+                                ItemDisplayBinding="{Binding activity}"
+                                SelectedItem="{Binding SelectedActivity}"
+                                />
+                        <StackLayout Orientation="Horizontal" Margin="15,20,0,0">
+                            <Label Text="Current Body Goal :" Style="{StaticResource FormsStyle}"/>
+                            <Label Text="{Binding SelectedBody.goal}" Style="{StaticResource FormsStyle}" TextColor="Black"/>
+                        </StackLayout>
+                        <Picker x:Name="pickerBody"
+                            Title="Change your Body Goal"
+                            Style="{StaticResource FormsStyle}"
+                            ItemsSource="{Binding BodyGoals}"
+                            ItemDisplayBinding="{Binding goal}"
+                            SelectedItem="{Binding SelectedBody}"
+                            />
                         </StackLayout>
                         </tabs:ViewSwitcher>
                     </Grid>
