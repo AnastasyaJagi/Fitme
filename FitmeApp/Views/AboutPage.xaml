@@ -29,24 +29,27 @@
                     <!--Label close-->
                     <StackLayout Grid.Row="0" Orientation="Horizontal">
                             <Image Source="backicon"
-                                   HeightRequest="35"
+                                   HeightRequest="600"
+                                   Margin="30,0,0,0"
                                    VerticalOptions="Start"
                                    HorizontalOptions="Start"
                                    >
                             </Image>
                             <Label TextColor="White"
-                                   FontSize="33"
+                                   FontSize="40"
                                    FontAttributes="Bold"
-                                   Text="About App"
-                                   Margin="60,0,30,0"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
+                                   Text="About"
+                                   HeightRequest="40"
+                                   Margin="50,80,0,0"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="Start"
                                    />
                     </StackLayout>
 
                     <!--Kotak putih-->
                     <Frame BackgroundColor="White"
                            Grid.Row="1"
+                           Margin="30,30,30,30"
                            CornerRadius="40">
 
                         <StackLayout>
@@ -54,7 +57,7 @@
                             <!-- Label About-->
                             <Label TextColor="Black"
                                    FontSize="20"
-                                   Text="Fitme adalah aplikasi sistem informasi untuk merekomendasikan jenis body weight exercises."
+                                   Text="Fitme adalah aplikasi untuk merekomendasikan jenis body weight exercises."
                                    Margin="15,55,0,0"
                                    />
 
