@@ -58,8 +58,8 @@
                            VerticalOptions="Center"
                            HorizontalOptions="Center"
                            >
-                  <Label Text="Arfi" Style="{StaticResource Title}"/>
-                  <Label Text="'s Profile" Style="{StaticResource Title}"/>
+                  
+                  <Label Text="Profile" Style="{StaticResource Title}"/>
               </StackLayout>
                <!--Forms-->
 

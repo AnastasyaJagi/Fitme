@@ -70,8 +70,9 @@
                                            HorizontalOptions="CenterAndExpand"
                                            Margin="30,0,30,0"/>
 
-                                   <Label Text="Exercises 0 - 2 times / week"
-                                           FontSize="20"
+                                   <Label Text="Exercises times : Low Active: 1-3x/week, Moderate : 3-5x/week, Active : 5-7x/week"
+                                          
+                                           FontSize="18"
                                            TextColor="#717171"
                                            Margin="30,0,30,0">
 

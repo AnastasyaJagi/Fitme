@@ -71,7 +71,7 @@
               
              <!--Button Get Recommendation-->
                   <StackLayout Grid.Row="2" BackgroundColor="Transparent">
-                      <Button Text="NEXT"
+                      <Button Text="Get Recommendation"
                               TextColor="Gray"
                               FontSize="20"
                                 BackgroundColor="White"
