@@ -63,6 +63,7 @@
                          CornerRadius="25"
                          WidthRequest="350"
                          HeightRequest="55"
+                         Clicked="NavigateToHome"
                          FontAttributes="Bold"/>
                   <Grid
                       Margin="30,20,0,0">
