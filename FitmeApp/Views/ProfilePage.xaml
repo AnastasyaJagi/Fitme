@@ -147,7 +147,7 @@
                     </Grid>
                   </Frame>
                <!--Button-->
-              <StackLayout Grid.Row="2" BackgroundColor="Transparent">
+              <StackLayout Grid.Row="2" BackgroundColor="Transparent" Orientation="Horizontal">
                       <Button Text="Save"
                               TextColor="#6974CF"
                               FontSize="20"
@@ -160,6 +160,19 @@
                          HeightRequest="50"
                          FontAttributes="Bold"
                          Clicked="Save_Clicked"
+                         />
+                  <Button Text="Logout"
+                              TextColor="#6974CF"
+                              FontSize="20"
+                              BackgroundColor="White"
+                              Margin="0,0,0,0"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand"
+                         CornerRadius="30"
+                         WidthRequest="200"
+                         HeightRequest="50"
+                         FontAttributes="Bold"
+                         Clicked="Logout_Clicked"
                          />
              </StackLayout>
           </Grid>

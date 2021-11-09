@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FitmeApp.Utils;
 using FitmeApp.ViewModels;
 using Xamarin.Forms;
 
@@ -29,6 +30,11 @@ namespace FitmeApp.Views
                 ViewModel.putPenggunaAsync();
             }
 
+        }
+
+        void Logout_Clicked(System.Object sender, System.EventArgs e) {
+            PreferencesWriter.UserId = "";
+            Navigation.PushAsync(new Login());
         }
     }
 }
