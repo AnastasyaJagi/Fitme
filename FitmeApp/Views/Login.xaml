@@ -41,7 +41,7 @@
               <StackLayout Padding="10">
                   <Entry Placeholder="Username"
                          BackgroundColor="Transparent"
-                         Text="{Binding Username}"
+                         Text="{Binding Uname}"
                          Margin="0,0,0,20"
                          TextColor="#717171"
                          FontAttributes="Bold"
@@ -49,7 +49,7 @@
 
                   <Entry Placeholder="Password"
                          BackgroundColor="Transparent"
-                         Text="{Binding Password}"
+                         Text="{Binding PasswordLogin}"
                          IsPassword="True"
                          Margin="0,0,0,20"
                          TextColor="#717171"
